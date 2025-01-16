@@ -49,3 +49,17 @@ ax.set_title('Kmeans')
 ax.set_xticks(())
 ax.set_yticks(())
 plt.savefig('./pngFiles/kmeans_plot.png')
+'''clustering into 3 clusters'''
+k_means3= KMeans(init='k-means++',n_clusters=3,n_init=12)
+k_means3.fit(x)
+fig = plt.figure(figsize=(6,4))
+k_means3_labels=k_means3.labels_
+k_means3_centers=k_means3.cluster_centers_
+colors =plt.cm.Spectral(np.linspace(0,1,(len(set(k_means3_labels)))))
+ax=fig.add_subplot(1,1,1)
+for k,col in zip(range(len(k_means3_centers)),colors):
+    my_members=(k_means3_labels==k)
+    cluster_centroids=k_means3_centers[k]
+    ax.plot(x[my_members,0],x[my_members,1],'w',markerfacecolor=col,marker='.')
+    ax.plot(cluster_centroids[0],cluster_centroids[1],'o',markerfacecolor=col,markeredgecolor='k',markersize=6)
+plt.savefig('./pngFiles/kmeans_plot2.png')
