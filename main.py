@@ -27,3 +27,7 @@ print("labels =",np.unique(k_means_labels))
 '''our labels are 0,1,2,3 because the number of clusters n_clusters was = 4 '''
 k_means_cluster_center = k_means.cluster_centers_
 print("cluster centers = ",k_means_cluster_center)
+fig =plt.figure(figsize=(6,4))
+'''matplotlib figure, the size is given in inches 6 length,height 4 inches'''
+colors=plt.cm.Spectral(np.linspace(0,1,(len(set(k_means_labels)))))
+print("Colors :\n",colors)
