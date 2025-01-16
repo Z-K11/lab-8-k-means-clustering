@@ -14,3 +14,11 @@ the center while some may be further but most of them will be within this distan
 plt.scatter(x[:,0],x[:,1],marker='.')
 '''0th column and 1st column of x are given to the scatter plot function'''
 plt.savefig('./pngFiles/first_plot.png')
+'''explanation of x and y, x and y will have values given to them by the make_blob function x is a 2d array having 5000 rows and 2 columns ? why because we have
+5000 samples and we have 2d points so x,y makes our two columns 5000 x,y makes 5000 rows ? y is a 1d array of 4 labels in our case why 4 ? because we gave
+the make blobs function 4 cluster centers'''
+k_means= KMeans(init='k-means++',n_clusters=4,n_init=12)
+'''init parameter determines how the initial cluster centroids are chosen because k means starts with random centroids and adjusts them k=means++ choses these 
+initial centroids in a smart way n_init decides how many iterations will occur ? to find the best possible result k-means runs several times and picks the result
+with the lowest inertia, inertia is the sum of squared distances between each point and the centroid of it's assigned cluster '''
+k_means.fit(x)
