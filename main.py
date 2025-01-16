@@ -22,3 +22,8 @@ k_means= KMeans(init='k-means++',n_clusters=4,n_init=12)
 initial centroids in a smart way n_init decides how many iterations will occur ? to find the best possible result k-means runs several times and picks the result
 with the lowest inertia, inertia is the sum of squared distances between each point and the centroid of it's assigned cluster '''
 k_means.fit(x)
+k_means_labels=k_means.labels_
+print("labels =",np.unique(k_means_labels))
+'''our labels are 0,1,2,3 because the number of clusters n_clusters was = 4 '''
+k_means_cluster_center = k_means.cluster_centers_
+print("cluster centers = ",k_means_cluster_center)
